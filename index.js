@@ -14,17 +14,21 @@ function buyCursor() {
     let multNotice = document.getElementById('multiplier');
     let cursorsText = parseInt(document.getElementById('cursors').textContent);
     let cursors = document.getElementById('cursors');
+    let cursorPrice = document.getElementById('cursorprcice');
+    let cursorPriceNum = parseInt(cursorPrice.textContent);
 
-    if (num < 10) {
-        alert('You do not have enough money to buy a cursor.')
+    if (num < cursorPriceNum) {
+        alert('You do not have enough money to buy a cursor. Current money:')
     }
     else {
-        num -= 10;
+        num -= cursorPriceNum;
         money.innerHTML = num;
         multiplier += 0.1;
         multNoticeText += 0.1;
         multNotice.innerHTML = multNoticeText;
         cursorsText += 1;
         cursors.innerHTML = cursorsText;
+        cursorPriceNum *= 0.3;
+        cursorPrice.innerHTML = cursorPriceNum;
     }
 }
