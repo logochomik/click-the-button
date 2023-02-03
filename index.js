@@ -10,8 +10,10 @@ function getMoney() {
 function buyCursor() {
     let money = document.getElementById('money');
     let num = parseInt(money.textContent);
-    let multNotice = parseInt(document.getElementById('multiplier').textContent);
-    let cursors = parseInt(document.getElementById('cursors').textContent);
+    let multNoticeText = parseInt(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let cursorsText = parseInt(document.getElementById('cursors').textContent);
+    let cursors = document.getElementById('cursors');
 
     if (num < 10) {
         alert('You do not have enough money to buy a cursor.')
@@ -20,7 +22,9 @@ function buyCursor() {
         num -= 10;
         money.innerHTML = num;
         multiplier += 0.1;
-        multNotice += 0.1;
-        cursors += 1;
+        multNoticeText += 0.1;
+        multNotice.innerHTML = multNoticeText;
+        cursorsText += 1;
+        cursors.innerHTML = cursorsText;
     }
 }
