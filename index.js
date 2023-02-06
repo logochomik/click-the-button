@@ -100,3 +100,33 @@ function buyFarm() {
         getMoney()
       }, 3000);
 }
+
+function buyBuilding() {
+    let money = document.getElementById('money');
+    let num = parseFloat(money.textContent);
+    let multNoticeText = parseFloat(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let buildingsText = parseFloat(document.getElementById('buildings').textContent);
+    let buildings = document.getElementById('buildings');
+    let buildingsPrice = document.getElementById('buildingsprice');
+    let buildingsPriceNum = parseFloat(buildingsPrice.textContent);
+
+    if (num < farmsPriceNum) {
+        alert(`You do not have enough money to buy a building.\n\nCurrent money: $${num}, Needed money: $${buildingsPriceNum}`);
+    }
+    else {
+        num -= buildingsPriceNum;
+        money.innerHTML = strip(num, 1);
+        multiplier += 25;
+        multNoticeText = strip(multiplier, 1);
+        multNotice.innerHTML = strip(multNoticeText, 1);
+        buildingsText += 1;
+        buildings.innerHTML = strip(buildingsText, 1);
+        buildingsPriceNum *= 1.3;
+        buildingsPrice.innerHTML = strip(buildingsPriceNum, 1);
+    }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 2000);
+}
