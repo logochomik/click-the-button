@@ -21,10 +21,8 @@ function buyCursor() {
     let cursorPrice = document.getElementById('cursorprice');
     let cursorPriceNum = parseFloat(cursorPrice.textContent);
 
-console.log(multiplier + ' ' + multNoticeText)
-
     if (num < cursorPriceNum) {
-        alert(`You do not have enough money to buy a cursor. Current money: $${num}, Needed money: $${cursorPriceNum}`);
+        alert(`You do not have enough money to buy a cursor.\n\nCurrent money: $${num}, Needed money: $${cursorPriceNum}`);
     }
     else {
         num -= cursorPriceNum;
@@ -37,6 +35,10 @@ console.log(multiplier + ' ' + multNoticeText)
         cursorPriceNum *= 1.3;
         cursorPrice.innerHTML = strip(cursorPriceNum, 1);
     }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 5000);
 }
 
 function buyFriend() {
@@ -50,7 +52,7 @@ function buyFriend() {
     let friendsPriceNum = parseFloat(friendsPrice.textContent);
 
     if (num < friendsPriceNum) {
-        alert(`You do not have enough money to buy a cursor. Current money: $${num}, Needed money: $${friendsPriceNum}`);
+        alert(`You do not have enough money to buy a friend.\n\nCurrent money: $${num}, Needed money: $${friendsPriceNum}`);
     }
     else {
         num -= friendsPriceNum;
@@ -63,4 +65,38 @@ function buyFriend() {
         friendsPriceNum *= 1.3;
         friendsPrice.innerHTML = strip(friendsPriceNum, 1);
     }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 4000);
+}
+
+function buyFarm() {
+    let money = document.getElementById('money');
+    let num = parseFloat(money.textContent);
+    let multNoticeText = parseFloat(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let farmsText = parseFloat(document.getElementById('farms').textContent);
+    let farms = document.getElementById('farms');
+    let farmsPrice = document.getElementById('farmsprice');
+    let farmsPriceNum = parseFloat(farmsPrice.textContent);
+
+    if (num < farmsPriceNum) {
+        alert(`You do not have enough money to buy a farm.\n\nCurrent money: $${num}, Needed money: $${farmsPriceNum}`);
+    }
+    else {
+        num -= farmsPriceNum;
+        money.innerHTML = strip(num, 1);
+        multiplier += 5;
+        multNoticeText = strip(multiplier, 1);
+        multNotice.innerHTML = strip(multNoticeText, 1);
+        farmsText += 1;
+        farms.innerHTML = strip(farmsText, 1);
+        farmsPriceNum *= 1.3;
+        farmsPrice.innerHTML = strip(farmsPriceNum, 1);
+    }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 3000);
 }
