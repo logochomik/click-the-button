@@ -9,15 +9,24 @@
         <script src="index.js"></script>
     </head>
     <body>
-        <div class="clickside">
-            <h1>$<span id="money">0</span></h1>
-            <h3>Multiplier: <span id="multiplier">1</span></h3>
-            <button id="button" class="click" onclick="getMoney()">click</button>
-        </div>
-        <div class="buyside">
-            <button id="addcursor" onclick="buyCursor()">Buy Cursor</button>
-            <h3>Cursors: <span id="cursors">0</span></h3>
-            <h3>Current Cursor Price: <span id='cursorprice'>10</span></h3>
+        <div class="grid-container">
+            <div class="clickside">
+                <h1>$<span id="money">0</span></h1>
+                <h3>Multiplier: <span id="multiplier">1</span></h3>
+                <button id="button" class="click" onclick="getMoney()">click me!</button>
+            </div>
+            <div class="buyside">
+                <div>
+                    <button id="addcursor" class="shopbtn" onclick="buyCursor()">Buy Cursor</button>
+                    <h3>Cursors: <span id="cursors">0</span></h3>
+                    <h3>Current Cursor Price: <span id='cursorprice'>10</span></h3>
+                </div>
+                <div>
+                    <button id="addfriend" class="shopbtn" onclick="buyFriend()">Buy Friend</button>
+                    <h3>Friends: <span id="friends">0</span></h3>
+                    <h3>Current Friend Price: <span id='friendsprice'>100</span></h3>
+                </div>
+            </div>
         </div>
     </body>
 </html>
