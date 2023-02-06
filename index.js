@@ -111,7 +111,7 @@ function buyBuilding() {
     let buildingsPrice = document.getElementById('buildingsprice');
     let buildingsPriceNum = parseFloat(buildingsPrice.textContent);
 
-    if (num < farmsPriceNum) {
+    if (num < buildingsPriceNum) {
         alert(`You do not have enough money to buy a building.\n\nCurrent money: $${num}, Needed money: $${buildingsPriceNum}`);
     }
     else {
@@ -129,4 +129,64 @@ function buyBuilding() {
     var intervalId = window.setInterval(function(){
         getMoney()
       }, 2000);
+}
+
+function buyFactory() {
+    let money = document.getElementById('money');
+    let num = parseFloat(money.textContent);
+    let multNoticeText = parseFloat(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let factoriesText = parseFloat(document.getElementById('factories').textContent);
+    let factories = document.getElementById('factories');
+    let factoriesPrice = document.getElementById('factoriesprice');
+    let factoriesPriceNum = parseFloat(factoriesPrice.textContent);
+
+    if (num < factoriesPriceNum) {
+        alert(`You do not have enough money to buy a factory.\n\nCurrent money: $${num}, Needed money: $${factoriesPriceNum}`);
+    }
+    else {
+        num -= factoriesPriceNum;
+        money.innerHTML = strip(num, 1);
+        multiplier += 125;
+        multNoticeText = strip(multiplier, 1);
+        multNotice.innerHTML = strip(multNoticeText, 1);
+        factoriesText += 1;
+        factories.innerHTML = strip(factoriesText, 1);
+        factoriesPriceNum *= 1.3;
+        factoriesPrice.innerHTML = strip(factoriesPriceNum, 1);
+    }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 1000);
+}
+
+function buyTemple() {
+    let money = document.getElementById('money');
+    let num = parseFloat(money.textContent);
+    let multNoticeText = parseFloat(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let templesText = parseFloat(document.getElementById('temples').textContent);
+    let temples = document.getElementById('temples');
+    let templesPrice = document.getElementById('templesprice');
+    let templesPriceNum = parseFloat(templesPrice.textContent);
+
+    if (num < templesPriceNum) {
+        alert(`You do not have enough money to buy a temple.\n\nCurrent money: $${num}, Needed money: $${templesPriceNum}`);
+    }
+    else {
+        num -= templesPriceNum;
+        money.innerHTML = strip(num, 1);
+        multiplier += 125;
+        multNoticeText = strip(multiplier, 1);
+        multNotice.innerHTML = strip(multNoticeText, 1);
+        templesText += 1;
+        temples.innerHTML = strip(templesText, 1);
+        templesPriceNum *= 1.3;
+        templesPrice.innerHTML = strip(templesPriceNum, 1);
+    }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 500);
 }
