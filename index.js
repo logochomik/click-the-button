@@ -177,7 +177,7 @@ function buyTemple() {
     else {
         num -= templesPriceNum;
         money.innerHTML = strip(num, 1);
-        multiplier += 125;
+        multiplier += 1150;
         multNoticeText = strip(multiplier, 1);
         multNotice.innerHTML = strip(multNoticeText, 1);
         templesText += 1;
