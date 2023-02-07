@@ -190,3 +190,63 @@ function buyTemple() {
         getMoney()
       }, 500);
 }
+
+function buyPortal() {
+    let money = document.getElementById('money');
+    let num = parseFloat(money.textContent);
+    let multNoticeText = parseFloat(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let portalsText = parseFloat(document.getElementById('portals').textContent);
+    let portals = document.getElementById('portals');
+    let portalsPrice = document.getElementById('portalsprice');
+    let portalsPriceNum = parseFloat(portalsPrice.textContent);
+
+    if (num < portalsPriceNum) {
+        alert(`You do not have enough money to buy a portal.\n\nCurrent money: $${num}, Needed money: $${portalsPriceNum}`);
+    }
+    else {
+        num -= portalsPriceNum;
+        money.innerHTML = strip(num, 1);
+        multiplier += 20875;
+        multNoticeText = strip(multiplier, 1);
+        multNotice.innerHTML = strip(multNoticeText, 1);
+        portalsText += 1;
+        portals.innerHTML = strip(portalsText, 1);
+        portalsPriceNum *= 1.3;
+        portalsPrice.innerHTML = strip(portalsPriceNum, 1);
+    }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 250);
+}
+
+function buyJavaScriptEmulator() {
+    let money = document.getElementById('money');
+    let num = parseFloat(money.textContent);
+    let multNoticeText = parseFloat(document.getElementById('multiplier').textContent);
+    let multNotice = document.getElementById('multiplier');
+    let javascriptemulatorsText = parseFloat(document.getElementById('javascriptemulators').textContent);
+    let javascriptemulators = document.getElementById('javascriptemulators');
+    let javascriptemulatorsPrice = document.getElementById('javascriptemulatorsprice');
+    let javascriptemulatorsPriceNum = parseFloat(javascriptemulatorsPrice.textContent);
+
+    if (num < javascriptemulatorsPriceNum) {
+        alert(`You do not have enough money to buy a JavaScript emulator.\n\nCurrent money: $${num}, Needed money: $${javascriptemulatorsPriceNum}`);
+    }
+    else {
+        num -= javascriptemulatorsPriceNum;
+        money.innerHTML = strip(num, 1);
+        multiplier += 108850;
+        multNoticeText = strip(multiplier, 1);
+        multNotice.innerHTML = strip(multNoticeText, 1);
+        javascriptemulatorsText += 1;
+        javascriptemulators.innerHTML = strip(javascriptemulatorsText, 1);
+        javascriptemulatorsPriceNum *= 1.3;
+        javascriptemulatorsPrice.innerHTML = strip(javascriptemulatorsPriceNum, 1);
+    }
+
+    var intervalId = window.setInterval(function(){
+        getMoney()
+      }, 125);
+}
